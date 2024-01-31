@@ -1,0 +1,61 @@
+:root {
+	--maincolor: rgba(0, 0, 0, 0.377);
+}
+
+#root {
+	width: 100vw;
+	padding: 3% 10% 0%;
+	display: flex;
+	gap: 0.25em;
+}
+
+#optionsModal {
+	grid-area: 1/1/1/1;
+	display: flex;
+	justify-self: end;
+	flex-direction: column;
+	align-items: center;
+	width: min-content;
+	height: fit-content;
+	font-size: 14px;
+	background: var(--maincolor);
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#optionsModal button {
+	padding: 0%;
+	text-align: center;
+	width: 100%;
+	aspect-ratio: 1/0.825;
+	background: none;
+}
+
+#optionsModal button:nth-child(1) {
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+#optionsModal button:nth-child(2) {
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+#optionsModal span {
+	margin: 0.5em;
+}
+
+#optionsModal img {
+	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+	width: 30%;
+	margin: 0 auto 0.75em;
+}
+
+#demoInp {
+	background: var(--maincolor);
+	padding: 0.75em;
+	width: min-content;
+	height: min-content;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
