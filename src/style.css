@@ -1,11 +1,12 @@
 :root {
-	--darkcolor: rgb(23, 23, 39);
+	--darkcolor: rgb(44, 44, 44);
 	--lightcolor: rgb(255, 255, 255);
 	font-size: 16px;
 }
 
 body {
-	background-color: rgb(44, 44, 44);
+	/* background-color: rgb(44, 44, 44); */
+	background-color: rgb(23, 23, 39);
 }
 
 #root {
