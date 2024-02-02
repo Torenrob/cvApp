@@ -1,25 +1,38 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+	label: string;
+	desc?: string;
+}
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Input.displayName = "Input"
+const descStyle = {
+	fontSize: "0.7em",
+	opacity: "0.5",
+	marginLeft: "0.3em",
+};
 
-export { Input }
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, label, desc, ...props }, ref) => {
+	return (
+		<div className="infoInputs">
+			<label htmlFor={label}>
+				{label}
+				{desc && <span style={descStyle}> {desc}</span>}
+			</label>
+			<input
+				name={label}
+				type={type}
+				className={cn(
+					"flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+					className
+				)}
+				ref={ref}
+				{...props}
+			/>
+		</div>
+	);
+});
+Input.displayName = "Input";
+
+export { Input };

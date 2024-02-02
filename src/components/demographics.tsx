@@ -1,18 +1,32 @@
 import r from "react";
 import { Input } from "./ui/input";
 
+const imgStyle = {
+	aspectRatio: "1/1",
+	width: "1.55rem",
+};
+
+const btnStyle = {
+	backgroundColor: "transparent",
+	borderRadius: "15px",
+	Position: "relative",
+	aspectRatio: "1/1",
+};
+
 export function Demographics(): r.ReactNode {
 	return (
 		<div id="demoInp">
-			<Input type="text" id="nameInp" key="nameInp" />
-			<Input type="tel" id="telInp" key="telInp" />
-			<Input type="email" id="emailInp" key="emailInp" />
-			<Input type="text" id="strNumInp" key="strNumInp" />
-			<Input type="text" id="strNameInp" key="strNameInp" />
-			<Input type="text" id="cityInp" key="cityInp" />
-			<Input type="text" id="stateInp" key="stateInp" />
-			<Input type="text" placeholder="Zip Code" pattern="^\d{5}(?:-\d{4})?$" id="zipInp" key="zipInp" />
-			<Input type="url" id="urlInp" key="urlInp" />
+			<div style={{ display: "flex", gap: "1em", justifyContent: "space-between" }}>
+				<h3>Personal Information</h3>
+				<button style={btnStyle} aria-label="Show/Hide Personal Information Form">
+					<img style={imgStyle} alt="Show/Hide" />
+				</button>
+			</div>
+			<Input className="inputStyle" type="text" label="Full Name" id="nameInp" key="nameInp" placeholder="John Doe" />
+			<Input className="inputStyle" type="tel" label="Phone Number" id="telInp" key="telInp" placeholder="(555) 555-555" />
+			<Input className="inputStyle" type="email" label="Email Address" id="emailInp" key="emailInp" placeholder="yourname@example.com" />
+			<Input className="inputStyle" type="text" label="Location" id="locInp" key="locInp" desc="Recommended" placeholder="Atlanta, GA" />
+			<Input className="inputStyle" type="url" label="Website" id="urlInp" key="urlInp" desc="Recommended" placeholder="https://www.linkedin.com/in/" />
 		</div>
 	);
 }
