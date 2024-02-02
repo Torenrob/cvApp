@@ -25,7 +25,7 @@ The CV/Resume Builder Web App is a user-friendly tool designed to help users cre
 ### Instructions
 
 1. Visit the [CV/Resume Builder](#) website.
-2. Start building your resume by following the on-screen instructions.
+2. Start building your resume!
 
 ## Usage
 
