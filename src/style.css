@@ -1,13 +1,17 @@
 :root {
-	--darkcolor: rgba(0, 0, 0, 0.377);
+	--darkcolor: rgb(23, 23, 39);
 	--lightcolor: rgb(255, 255, 255);
 	font-size: 16px;
 }
 
+body {
+	background-color: rgb(44, 44, 44);
+}
+
 #root {
-	padding: 3% 10% 0%;
+	padding: 1.5% 10% 0%;
 	display: flex;
-	gap: 0.75em;
+	gap: 1.5em;
 	color: rgb(226, 222, 222);
 }
 
@@ -158,6 +162,6 @@
 	}
 
 	button:hover {
-		border-color: rgb(179, 179, 192);
+		border-color: black;
 	}
 }
