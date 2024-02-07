@@ -20,8 +20,8 @@ export function EduList({ list, changeFunct }: { list: Array<school>; changeFunc
 			<div id="expList">
 				{list.map((school: school): r.ReactNode => {
 					return (
-						<div style={styleList} key={school.name}>
-							<h4>{school.name}</h4>
+						<div style={styleList} key={school.schoolName}>
+							<h4>{school.schoolName}</h4>
 							<div style={{ display: "flex", width: "35%", justifyContent: "space-between" }}>
 								<button className="inputBtn" style={btnStyle}>
 									Edit
@@ -34,7 +34,7 @@ export function EduList({ list, changeFunct }: { list: Array<school>; changeFunc
 					);
 				})}
 			</div>
-			<button className="inputBtn" onClick={changeFunct} style={{ ...btnStyle, marginTop: "1.5em", width: "100%", padding: "0.45em" }}>
+			<button className="inputBtn" onClick={changeFunct} style={{ ...btnStyle, marginTop: ".5em", width: "100%", padding: "0.45em" }}>
 				Add School
 			</button>
 		</>

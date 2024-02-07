@@ -1,5 +1,6 @@
 import { work } from "./workExp";
 import r, { MouseEventHandler } from "react";
+import { Signal } from "@preact/signals";
 
 const styleList = {
 	display: "flex",
@@ -14,22 +15,28 @@ const btnStyle = {
 	borderRadius: "7px",
 };
 
-export function WorkList({ list, changeFunct }: { list: Array<work>; changeFunct: MouseEventHandler }): r.ReactNode {
+export function WorkList({ list, changeFunct }: { list: Signal<work[]>; changeFunct: MouseEventHandler }): r.ReactNode {
 	return (
 		<>
-			{list.map((work: work): r.ReactNode => {
-				return (
-					<div style={styleList} key={work.name}>
-						<h4>{work.name}</h4>
-						<div style={{ display: "flex", width: "35%", justifyContent: "space-between" }}>
-							<button style={btnStyle}>Edit</button>
-							<button style={btnStyle}>Delete</button>
+			<div id="expList">
+				{list.value.map((work: work): r.ReactNode => {
+					return (
+						<div style={styleList} key={work.title}>
+							<h4>{work.title}</h4>
+							<div style={{ display: "flex", width: "35%", justifyContent: "space-between" }}>
+								<button className="inputBtn" style={btnStyle}>
+									Edit
+								</button>
+								<button className="inputBtn" style={btnStyle}>
+									Delete
+								</button>
+							</div>
 						</div>
-					</div>
-				);
-			})}
-			<button onClick={changeFunct} style={{ ...btnStyle, marginTop: "1.5em", width: "100%", padding: "0.45em" }}>
-				Add School
+					);
+				})}
+			</div>
+			<button className="inputBtn" onClick={changeFunct} style={{ ...btnStyle, marginTop: ".5em", width: "100%", padding: "0.45em" }}>
+				Add Experience
 			</button>
 		</>
 	);

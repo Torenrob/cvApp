@@ -1,7 +1,8 @@
-import r, { useState } from "react";
+import r, { SyntheticEvent, useState } from "react";
 import { EduInput } from "./eduInput";
 import { EduList } from "./eduList";
 import { shrinkModal } from "@/lib/utils";
+import { signal } from "@preact/signals";
 
 const imgStyle = {
 	aspectRatio: "1/1",
@@ -15,18 +16,30 @@ const btnStyle = {
 };
 
 export interface school {
-	name: string;
+	schoolName: string;
+	program: string;
+	startDate: string;
+	endDate: string;
+	location: string;
 }
+let school: Array<school> = [];
+export let schoolList = signal(school);
 
 export function EduModal(): r.ReactNode {
 	const [eduState, setEduState] = useState("list");
 
-	let schoolList: Array<school> = [{ name: "UGA" }, { name: "GSU" }, { name: "FLS" }, { name: "GTECH" }, { name: "FSU" }];
+	function eduChange(e: SyntheticEvent) {
+		let submitBtn = e.nativeEvent as SubmitEvent;
 
-	function eduChange() {
-		if (eduState === "list") {
+		if (eduState === "list" || submitBtn.submitter?.hasAttribute("formnovalidate")) {
 			setEduState("input");
 		} else {
+			e.preventDefault();
+			let form: FormData = new FormData(e.target as HTMLFormElement);
+			let formData = Object.fromEntries(form) as unknown;
+
+			school.push(formData as school);
+			console.log(schoolList);
 			setEduState("list");
 		}
 	}
@@ -39,7 +52,7 @@ export function EduModal(): r.ReactNode {
 					<img className="arrow" style={imgStyle} alt="Show/Hide" />
 				</button>
 			</div>
-			{eduState === "list" && <EduList list={schoolList} changeFunct={eduChange} />}
+			{eduState === "list" && <EduList list={schoolList.value} changeFunct={eduChange} />}
 			{eduState === "input" && <EduInput changeFunct={eduChange} />}
 		</div>
 	);
