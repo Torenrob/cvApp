@@ -51,3 +51,7 @@ li {
 	max-width: 75ch;
 	text-wrap: pretty;
 }
+
+button {
+	border: transparent;
+}

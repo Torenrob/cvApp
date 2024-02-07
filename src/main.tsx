@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "./reset.css";
-import "./index.css";
-import "./style.css";
+import "./style/reset.css";
+import "./style/index.css";
+import "./style/style.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>

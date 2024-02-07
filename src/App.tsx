@@ -1,7 +1,7 @@
 import { ToolModal } from "./components/ToolModal";
-import { Content } from "./components/contentModal";
+import { Content } from "./components/contentInputCol/contentModal";
+import ResumeDisplay from "./components/resume/resumeDisplay";
 import react from "react";
-import ResumeDisplay from "./components/resumeDisplay";
 
 function App(): react.ReactNode {
 	return (

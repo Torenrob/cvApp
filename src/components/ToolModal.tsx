@@ -6,11 +6,11 @@ export function ToolModal(): ReactNode {
 	return (
 		<>
 			<div id="optionsModal">
-				<button key={1} aria-label="Open Input Fields">
+				<button className="toolBtns" key={1} aria-label="Open Input Fields">
 					<img src={contentImg} alt="Information Input" />
 					<span>Information</span>
 				</button>
-				<button key={2} aria-label="Open Customization Options">
+				<button className="toolBtns" key={2} aria-label="Open Customization Options">
 					<img src={optionsImg} alt="Customize" />
 					<span>Options</span>
 				</button>
